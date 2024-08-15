@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "azure-runcommands-on-vm-vmss-with-python-sdk"
+version = "0.1.0"
+description = ""
+authors = ["githubofkrishnadhas <krishnadhasnk1997@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+azure-mgmt-compute = "^32.0.0"
+python-dotenv = "^1.0.1"
+azure-identity = "^1.17.1"
+azure-mgmt-resourcegraph = "^8.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

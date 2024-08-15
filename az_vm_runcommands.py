@@ -19,12 +19,16 @@ def run_commands_on_vm(resource_group:str, subscription_id:str, vm_name:str):
 		command_id='RunShellScript',
 		script=['sudo systemctl start jenkins']
 	)
-
+	print(f'Executing Run commands on {vm_name} VM of resource group {resource_group}')
 	response = compute_mgmt_client.virtual_machines.begin_run_command(resource_group_name=resource_group,
 													   vm_name=vm_name,parameters=run_command_parameters)
 
 	result = response.result()
-	print(result.value[0].message)
+	if result.value[0].code == "ProvisioningState/succeeded":
+		print(f"Run command execution in VM {vm_name} of resource group {resource_group} completed successfully")
+	else:
+		print('Something went wrong!!')
+
 
 
 def main():
